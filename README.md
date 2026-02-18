@@ -1,152 +1,104 @@
-# ELSS Tax Saving Landing Page
+# ELSS Landing Page – Monorepo
 
-A high-conversion landing page for Ongolebulls Invest Pvt Ltd - An AMFI Registered Mutual Fund Distributor in India.
+This project is a **monorepo** with two top-level applications:
 
-## Live Demo
+- **`/frontend`** – React + Vite + TypeScript + Tailwind (ELSS landing page)
+- **`/backend`** – Node.js + Express API (leads and health endpoints)
 
-**Website URL:** https://brdb6cwg6vmhi.ok.kimi.link
+---
 
-## Features
-
-### Frontend (React + TypeScript + Tailwind CSS)
-
-1. **Sticky Top Bar** - Urgency messaging with CTA buttons (Call & WhatsApp)
-2. **Hero Section** - Main headline, trust badges, and primary CTAs
-3. **What is ELSS** - Educational section about Equity Linked Saving Schemes
-4. **Key Benefits** - Icon grid showcasing ELSS advantages
-5. **Comparison Table** - ELSS vs Other 80C options (PPF, FD, LIC, NSC)
-6. **ELSS Calculator** - Interactive calculator for returns and tax savings
-7. **Top ELSS Funds** - Dynamic cards showing best performing funds
-8. **Why Choose Us** - Company credentials and trust factors
-9. **How It Works** - 4-step process visualization
-10. **Testimonials** - Client success stories
-11. **Lead Capture Form** - Form with validation and API integration
-12. **FAQ Section** - Accordion-style frequently asked questions
-13. **Sticky Bottom CTA** - Mobile-optimized floating action buttons
-14. **Footer** - Contact details and compliance disclaimers
-
-### Backend (Node.js + Express)
-
-- **POST /api/leads** - Submit lead form data
-- **GET /api/leads** - Retrieve all leads (for admin)
-- **GET /api/health** - Health check endpoint
-- Leads stored in JSON file (easily upgradable to MongoDB)
-
-## Tech Stack
-
-- **Frontend:** React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui
-- **Backend:** Node.js, Express.js, CORS
-- **Design:** Mobile-first, responsive, SEO-optimized
-
-## Project Structure
+## Folder structure
 
 ```
-/mnt/okcomputer/output/app/
-├── src/
-│   ├── sections/           # All page sections as React components
-│   │   ├── StickyTopBar.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── WhatIsELSS.tsx
-│   │   ├── KeyBenefits.tsx
-│   │   ├── ComparisonTable.tsx
-│   │   ├── CalculatorSection.tsx
-│   │   ├── TopFunds.tsx
-│   │   ├── WhyChooseUs.tsx
-│   │   ├── HowItWorks.tsx
-│   │   ├── Testimonials.tsx
-│   │   ├── LeadForm.tsx
-│   │   ├── FAQSection.tsx
-│   │   ├── StickyBottomCTA.tsx
-│   │   └── Footer.tsx
-│   ├── App.tsx
-│   ├── index.css
-│   └── main.tsx
-├── server/
-│   ├── server.js           # Express server
-│   ├── package.json
-│   └── data/
-│       └── leads.json      # Lead storage
-├── dist/                   # Production build
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── vite.config.ts
+ELSS Landing Page/
+├── frontend/                 # React/Vite app
+│   ├── src/
+│   │   ├── components/
+│   │   ├── sections/
+│   │   ├── lib/
+│   │   ├── hooks/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css
+│   ├── index.html
+│   ├── package.json          # frontend deps only
+│   ├── vite.config.ts
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── vercel.json           # for frontend-only deploy
+│   └── .env.example
+├── backend/                  # Express API
+│   ├── server.js
+│   ├── data/
+│   │   └── leads.json
+│   ├── package.json          # backend deps only
+│   └── .env.example
+├── .gitignore
+└── README.md                 # this file
 ```
 
-## Color Theme
+*(The legacy `app/` folder can be removed after you confirm the new setup works.)*
 
-- **Trust Blue:** #1d4ed8 (Primary)
-- **Wealth Green:** #16a34a (Secondary)
-- **Clean White:** #ffffff (Background)
-- **Urgency Red:** #dc2626 (Top bar)
+---
 
-## How to Run Locally
+## How to run locally
 
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Step 1: Start the Backend Server
+### Backend (API)
 
 ```bash
-cd /mnt/okcomputer/output/app/server
-npm install
-npm start
-```
-
-Server will start on `http://localhost:5000`
-
-API Endpoints:
-- `POST http://localhost:5000/api/leads` - Submit lead
-- `GET http://localhost:5000/api/leads` - Get all leads
-- `GET http://localhost:5000/api/health` - Health check
-
-### Step 2: Start the Frontend
-
-```bash
-cd /mnt/okcomputer/output/app
+cd backend
 npm install
 npm run dev
 ```
 
-Frontend will start on `http://localhost:5173`
+- Server runs at **http://localhost:5000**
+- Endpoints: `POST /api/leads`, `GET /api/leads`, `GET /api/health`
+- Optional: copy `backend/.env.example` to `backend/.env` and set `PORT` or `FRONTEND_ORIGIN` if needed.
 
-### Step 3: Build for Production
+### Frontend (React app)
 
 ```bash
-cd /mnt/okcomputer/output/app
-npm run build
+cd frontend
+npm install
+npm run dev
 ```
 
-Production files will be in the `dist/` folder.
+- App runs at **http://localhost:5173**
+- In dev it calls the backend at **http://localhost:5000** unless you set `VITE_API_URL` in `frontend/.env`.
 
-## Key Features for Conversion
-
-1. **Sticky CTAs** - Always visible call-to-action buttons
-2. **Urgency Messaging** - Countdown and limited-time offers
-3. **Trust Badges** - AMFI registration, happy investors count
-4. **Social Proof** - Testimonials from satisfied clients
-5. **Interactive Calculator** - Engage users with personalized calculations
-6. **Comparison Table** - Show ELSS superiority over alternatives
-7. **Mobile-Optimized** - Sticky bottom bar for mobile users
-8. **Fast Loading** - Optimized build with Vite
-
-## Compliance
-
-- AMFI Registration mentioned
-- SEBI compliance statements
-- Mutual fund risk disclaimers
-- Contact information provided
-- Privacy and security assurances
-
-## Contact
-
-**Ongolebulls Invest Pvt Ltd**
-- Email: info@ongolebullsinvest.com
-- Phone: +91-9281111730
-- Address: Flat No. 805B, Manjeera Majestic Commercial Complex, Opposite JNTU, KPHB, Kukatpally, Hyderabad – 500072, Telangana, India.
+**Run both:** open one terminal for `backend` and one for `frontend`, then use the app at http://localhost:5173.
 
 ---
 
-**Note:** This is a demo landing page. For production use, please update the AMFI registration number and other compliance details with actual values.
+## How to deploy
+
+### Deploy frontend separately (e.g. Vercel)
+
+1. In Vercel (or your host), set **Root Directory** to **`frontend`**.
+2. Build command: `npm run build` (default for Vite).
+3. Output directory: `dist`.
+4. If the frontend is on a different domain than the API, set **Environment variable** in the dashboard:
+   - `VITE_API_URL` = your backend base URL (e.g. `https://your-api.railway.app`), no trailing slash.
+
+The frontend will call `${VITE_API_URL}/api/leads` in production when `VITE_API_URL` is set.
+
+### Deploy backend separately (e.g. Railway, Render, Fly.io, VPS)
+
+1. Set **Root Directory** to **`backend`** (or deploy only the `backend` folder).
+2. Install: `npm install`, start: `npm start` (or `node server.js`).
+3. Set env vars:
+   - **`PORT`** – port the server listens on (often provided by the host).
+   - **`FRONTEND_ORIGIN`** – your frontend URL for CORS (e.g. `https://your-app.vercel.app`).
+
+After deploy, use the backend URL as `VITE_API_URL` in the frontend project so the landing page talks to this API.
+
+---
+
+## Summary
+
+| Task              | Command / Location |
+|-------------------|--------------------|
+| Run frontend     | `cd frontend && npm run dev` → http://localhost:5173 |
+| Run backend      | `cd backend && npm run dev`   → http://localhost:5000 |
+| Deploy frontend  | Root = `frontend`, set `VITE_API_URL` if API is elsewhere |
+| Deploy backend   | Root = `backend`, set `PORT` and `FRONTEND_ORIGIN`     |

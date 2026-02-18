@@ -27,5 +27,5 @@ Thumbs.db
 # Vercel
 .vercel
 
-# Server data (optional - uncomment if you don't want to commit leads)
-# app/server/data/
+# Backend leads data (optional - uncomment if you don't want to commit leads)
+# backend/data/

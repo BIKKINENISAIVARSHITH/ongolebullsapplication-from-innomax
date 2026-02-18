@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1771392558067,
+    "name": "XYZ",
+    "mobile": "9745678536",
+    "email": "admin@gmail.com",
+    "investmentAmount": "5000-10000",
+    "source": "ELSS Landing Page",
+    "createdAt": "2026-02-18T05:29:18.067Z"
+  },
+  {
+    "id": 1771392870459,
+    "name": "Tharun",
+    "mobile": "9611774529",
+    "email": "ambikamethre890@gmail.com",
+    "investmentAmount": "500-5000",
+    "source": "ELSS Landing Page",
+    "createdAt": "2026-02-18T05:34:30.459Z"
+  },
+  {
+    "id": 1771397308102,
+    "name": "testing",
+    "mobile": "9865432167",
+    "email": "test@gmail.com",
+    "investmentAmount": "25000+",
+    "source": "ELSS Landing Page",
+    "createdAt": "2026-02-18T06:48:28.102Z"
+  }
+]
