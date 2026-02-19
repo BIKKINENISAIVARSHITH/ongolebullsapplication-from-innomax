@@ -29,8 +29,7 @@ ELSS Landing Page/
 │   └── .env.example
 ├── backend/                  # Express API
 │   ├── server.js
-│   ├── data/
-│   │   └── leads.json
+│   ├── supabase-leads-table.sql   # run in Supabase to create leads table
 │   ├── package.json          # backend deps only
 │   └── .env.example
 ├── .gitignore
@@ -53,7 +52,8 @@ npm run dev
 
 - Server runs at **http://localhost:5000**
 - Endpoints: `POST /api/leads`, `GET /api/leads`, `GET /api/health`
-- Optional: copy `backend/.env.example` to `backend/.env` and set `PORT` or `FRONTEND_ORIGIN` if needed.
+- **Supabase:** copy `backend/.env.example` to `backend/.env` and set `SUPABASE_URL`, `SUPABASE_KEY`. Create the `leads` table by running `backend/supabase-leads-table.sql` in the Supabase SQL Editor.
+- Optional: set `PORT` or `FRONTEND_ORIGIN` in `backend/.env` if needed.
 
 ### Frontend (React app)
 
@@ -67,6 +67,8 @@ npm run dev
 - In dev it calls the backend at **http://localhost:5000** unless you set `VITE_API_URL` in `frontend/.env`.
 
 **Run both:** open one terminal for `backend` and one for `frontend`, then use the app at http://localhost:5173.
+
+**Admin portal:** open http://localhost:5173/admin-portal and sign in with the configured admin password to view leads (see `frontend/src/AdminLeads.tsx` for the default).
 
 ---
 
@@ -88,7 +90,8 @@ The frontend will call `${VITE_API_URL}/api/leads` in production when `VITE_API_
 2. Install: `npm install`, start: `npm start` (or `node server.js`).
 3. Set env vars:
    - **`PORT`** – port the server listens on (often provided by the host).
-   - **`FRONTEND_ORIGIN`** – your frontend URL for CORS (e.g. `https://your-app.vercel.app`).
+   - **`SUPABASE_URL`** and **`SUPABASE_KEY`** – from your Supabase project (API URL and anon/service key).
+   - **`FRONTEND_ORIGIN`** – your frontend URL for CORS (e.g. `https://your-app.vercel.app`). The backend also allows any `*.vercel.app` origin.
 
 After deploy, use the backend URL as `VITE_API_URL` in the frontend project so the landing page talks to this API.
 
