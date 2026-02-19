@@ -48,7 +48,7 @@ const WhatIsELSS = () => {
     { icon: Users, text: 'Salaried individuals' },
     { icon: Target, text: 'First-time investors' },
     { icon: Building, text: 'Young professionals' },
-    { icon: PiggyBank, text: 'Taxpayers seeking growth' }
+    { icon: PiggyBank, text: 'Taxpayers in the old regime' }
   ];
 
   return (

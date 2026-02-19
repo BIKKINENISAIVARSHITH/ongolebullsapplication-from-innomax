@@ -1,4 +1,6 @@
-import { Phone, MessageCircle, Clock } from 'lucide-react';
+import { Phone, MessageCircle, Clock, ExternalLink } from 'lucide-react';
+
+const WEBSITE_URL = 'http://ongolebullsinvest.com/';
 
 const StickyTopBar = () => {
   const handlePhoneClick = () => {
@@ -8,6 +10,10 @@ const StickyTopBar = () => {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent('Hi, I want to save tax with ELSS');
     window.open(`https://wa.me/919281111730?text=${message}`, '_blank');
+  };
+
+  const handleVisitWebsite = () => {
+    window.open(WEBSITE_URL, '_blank');
   };
 
   return (
@@ -21,6 +27,14 @@ const StickyTopBar = () => {
           </span>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={handleVisitWebsite}
+            className="flex items-center gap-1.5 bg-wealth-green hover:bg-wealth-green-light text-white px-3 py-1.5 rounded-full text-sm font-semibold transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Visit Our Website</span>
+            <span className="sm:hidden">Website</span>
+          </button>
           <button
             onClick={handlePhoneClick}
             className="flex items-center gap-1.5 bg-white text-red-600 px-3 py-1.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors"
