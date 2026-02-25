@@ -1,31 +1,5 @@
-# Dependencies - do not push node_modules
 node_modules/
-
-# Environment variables - do not push secrets
 .env
-.env.local
-.env.*.local
-
-# Build output
 dist/
 build/
-
-# Logs and debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# OS files
 .DS_Store
-Thumbs.db
-
-# IDE
-.idea/
-*.swp
-*.swo
-
-# Vercel
-.vercel
-
-# Backend leads data (optional - uncomment if you don't want to commit leads)
-# backend/data/
